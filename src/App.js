@@ -1,24 +1,43 @@
 import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import UserForm from './comp/UserForm';
+import UserInfo from './comp/UserInfo';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 function App() {
+  //Display my data pulled from the server (workers.json)
+  const [workers, setWorkers] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/workers')
+      .then((response) => {
+        // Handle successful response
+        setWorkers(response.data);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error(error);
+      });
+  }, []);
+
   return (
+    <>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       
+        <div className='section'>
+            <UserForm/>
+        </div>
+        <div className='section'>
+            <UserInfo workers={workers}/>
+        </div>
       </header>
     </div>
+    </>
   );
 }
 

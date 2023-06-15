@@ -1,0 +1,22 @@
+{
+  "workers": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "phone": "074 264 0000",
+      "tracknumber": "C00123456",
+      "position": "Stripper",
+      "gender": "other"
+    },
+    {
+      "id": 2,
+      "name": "Mary Dow",
+      "email": "Mdoe@example.com",
+      "phone": "074 264 0000",
+      "tracknumber": "C00123456",
+      "position": "Manager",
+      "gender": "other"
+    }
+  ]
+}
