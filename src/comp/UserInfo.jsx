@@ -66,8 +66,15 @@ const UserInfo = () => {
 </tr>
 </thead>
 
-<tbody>
-<tr key={worker.id}>
+<tbody  key={worker.id}>
+<tr>
+<td>{worker.name}</td>
+<td>{worker.position}</td>
+<td>{worker.idNum}</td>
+<td>{worker.email}</td>
+<td>{worker.cell}</td>
+</tr>
+<tr>
 <td>{worker.name}</td>
 <td>{worker.position}</td>
 <td>{worker.idNum}</td>

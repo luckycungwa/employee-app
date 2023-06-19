@@ -52,6 +52,7 @@ const UserForm = () => {
         Position:
         <input type="text" name="position" value={formData.position} onChange={handleInputChange}/>
       </label>
+      <br/>
       <button className='cta-btn' type="submit">Add Worker</button>
     </form>
 
