@@ -3,9 +3,10 @@ import { useState } from 'react';
 // for data management with json server
 import axios from 'axios';
 
-const UserForm = () => {
+const UserForm = ({workerId}) => {
   // Iniialise form fields / states
-  const [formData, setFormData] = useState({ name: '', email: '', position: '', idNum: '', cell: '' });
+  const defaultForm = {name: '', email: '', position: '', idNum: '', cell: ''};
+  const [formData, setFormData] = useState(defaultForm);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,12 +15,12 @@ const UserForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Post on my server at specified dir (http://localhost:3000/workers)
-    axios.post('http://localhost:3000/workers', formData)
+    axios.post(`http://localhost:3000/workers`, formData)
       .then((response) => {
         // Handle successful response
         console.log(response.data);
-        // Reset the form
-      e.target.reset();
+        // Reset the form | CURRENTLY NOT WORKING
+      setFormData(defaultForm);
 
       })
       .catch((error) => {

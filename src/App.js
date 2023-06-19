@@ -3,8 +3,10 @@ import React from 'react';
 import './App.css';
 import UserForm from './comp/UserForm';
 import UserInfo from './comp/UserInfo';
+import UserUpdate from "./comp/UserUpdate";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import UserUpdate from './comp/UserUpdate';
 
 
 function App() {
@@ -23,17 +25,23 @@ function App() {
       });
   }, []);
 
+  
+
   return (
     <>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
        
+       {/* iNFORMATION INPUT COLLECTION */}
         <div className='section'>
-            <UserForm/>
+            {/* <UserForm/> */}
+            <UserUpdate/>
         </div>
+        {/* iNFORMATION OUTPUT DISPLAY */}
         <div className='section'>
-            <UserInfo workers={workers}/>
+        <h1>Display Worker Info</h1>
+            <UserInfo key={workers.id} workers={workers}/>
         </div>
       </header>
     </div>

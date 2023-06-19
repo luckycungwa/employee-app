@@ -1,22 +1,28 @@
 {
   "workers": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "johndoe@example.com",
-      "phone": "074 264 0000",
-      "tracknumber": "C00123456",
-      "position": "Stripper",
-      "gender": "other"
+      "name": "sluger",
+      "email": "Cungwa@gmil.com",
+      "position": "Manager",
+      "idNum": "222",
+      "cell": "2222",
+      "id": 4
     },
     {
-      "id": 2,
-      "name": "Mary Dow",
-      "email": "Mdoe@example.com",
-      "phone": "074 264 0000",
-      "tracknumber": "C00123456",
-      "position": "Manager",
-      "gender": "other"
+      "name": "Unknown",
+      "email": "unkown@gmail.com",
+      "position": "Security",
+      "idNum": "155896",
+      "cell": "0142563",
+      "id": 5
+    },
+    {
+      "name": "",
+      "email": "",
+      "position": "",
+      "idNum": "",
+      "cell": "",
+      "id": 6
     }
   ]
 }
