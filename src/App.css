@@ -11,7 +11,10 @@ body {
   margin: 0;
   padding: 0px;
   background-color: #383838;
+  
   /* Control Pseudo RESPONSIVENESS */
+  display: inline-flex;
+  position: relative;
 }
 
 ul {
@@ -35,13 +38,16 @@ li {
   margin-right: 12px;
 }
 
-.section {
+.form {
   margin: 0;
   padding: 24px;
   background-color: #efefef;
+  border-radius: 4px;
+  display: inline-flex;
   position: relative;
-  max-width: 50vw;
-  flex-wrap:wrap;
+  width: 20vw;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .Input-field {
@@ -49,9 +55,14 @@ li {
   padding: 8px;
   top: 0;
   left: 0;
-  position: relative;
-  display: flex;
   color: #151515;
+  
+}
+
+label {
+ 
+  display: inline-flex;
+  position: relative;
 }
 
 .cta-btn {
@@ -77,6 +88,22 @@ li {
   transform: translateY(-0px);
   background-color: #eeeeee6a;
   border: solid 2px #000;
+}
+
+.cta-btn2 {
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+  background-color: #fff;
+  padding: 4px 10px;
+  border: solid #202020 2px;
+  transition: 0.6s;
+  /* display: flex;
+  flex-direction: row; */
+  align-items: center;
+  cursor: pointer;
+  margin: 12px 12px 0px 0px;
+  gap: 8px;
 }
 
 .text-label {
@@ -113,8 +140,8 @@ select:focus {
   transition: all 0.6s ease;
   position: relative;
   display: flex;
-  width: 25vw;
   /* border: 1px solid #151515; */
+  justify-content: left;
 }
 
 /* Display results */
@@ -207,4 +234,60 @@ tr:nth-child(odd) {
 
 td {
   padding: 8px;
+}
+
+.nav {
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: start;
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #3053ff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 30px;
+  align-items: center;
+  margin: 0px;
+  
+  width: 12vw;
+  height: 100vh;
+}
+
+.navLinks {
+  margin: 32px 0 0 0;
+  color: #efefef;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  margin: 32px 0 0 0;
+  font-weight: bold;
+  color: #ffcaf0;
+  cursor: pointer;
+  background-color: #333;
+}
+
+.Section{
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  width: 15vw;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+}
+
+.mainSection{
+
+  display: grid;
+  position: relative;
+  grid-template-columns: 400px auto;
+  grid-template-rows: auto auto;
+  gap: 12px;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100vw;
+  
 }

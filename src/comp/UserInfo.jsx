@@ -1,11 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
+// Server Element
 import axios from "axios";
 // iMPORT MY RLETATED COMONENT
 import WorkerItem from "./Worker";
 // import UserUpdate from "./UserUpdate";
 
 const UserInfo = () => {
+  //Display my data pulled from the server (workers.json)
   const [workers, setWorkers] = useState([]);
 
   useEffect(() => {
@@ -43,8 +45,25 @@ const UserInfo = () => {
     <>
       <div className="user-section">
         {/* CALL THE USERiTEM COMONENT TO ACCESS & MANIPULATE THE DATA */}
-        {workers.map((worker) => (
+        <h1>EMPLOYEES</h1>
+{/* TABLE FOR WORKER INFORMATION DISPLAY */}
+<table class="user-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Cellphone</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+          {/* uSER DATA COMPONENT */}
+          {workers.map((worker) => (
           <div className="profile">
+          
             <WorkerItem
               key={Worker.id}
               worker={worker}
@@ -52,6 +71,13 @@ const UserInfo = () => {
             />
           </div>
         ))}
+            
+          </tr>
+        </tbody>
+      </table>
+
+
+       
       </div>
     </>
   );

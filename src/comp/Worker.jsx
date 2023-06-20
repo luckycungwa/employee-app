@@ -1,5 +1,6 @@
 import React from "react";
 import UserUpdate from "./UserUpdate";
+import {useHistory} from "react-router-dom";
 
 const WorkerItem = ({ worker, onDelete }) => {
   
@@ -8,39 +9,28 @@ const WorkerItem = ({ worker, onDelete }) => {
     onDelete(worker.id);
   };
 
+  // 
+  const history = useHistory();
+  const handleUpdate = () => {
+    
+    history.push("/UserUpdate");
+  };
 
   return (
     <div>
-      {/* TABLE FOR WORKER INFORMATION DISPLAY */}
-      <table class="user-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Cellphone</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>{worker.name}</td>
+      <td>{worker.name}</td>
             <td>{worker.position}</td>
             <td>{worker.idNum}</td>
             <td>{worker.email}</td>
             <td>{worker.cell}</td>
-          </tr>
-        </tbody>
-      </table>
       {/* BUTTONS */}
       <div>
         {/* Delete the uder and the data */}
-        <button className="cta-btn" onClick={handleDelete}>
-          Delete
+        <button className="cta-btn2" onClick={handleDelete}>
+          -
         </button>
         {/* allow an update & edit of the user selected */}
-        <button className="cta-btn">Update</button>
+        <button className="cta-btn2" onClick={handleUpdate}>+</button>
       </div>
     </div>
   );

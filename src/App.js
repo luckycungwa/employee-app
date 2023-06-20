@@ -1,51 +1,55 @@
-import logo from './logo.svg';
-import React from 'react';
-import './App.css';
-import UserForm from './comp/UserForm';
-import UserInfo from './comp/UserInfo';
-import UserUpdate from "./comp/UserUpdate";
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import UserUpdate from './comp/UserUpdate';
+import logo from "./logo.svg";
+import React from "react";
+import { useState, useEffect } from "react";
+import "./App.css";
+import axios from "axios";
 
+// Importing Components
+import UserForm from "./comp/UserForm";
+import UserInfo from "./comp/UserInfo";
+import UserUpdate from "./comp/UserUpdate";
+// Importing pages
+
+//importing Router related elements
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./comp/Home";
+import Navbar from "./comp/Navbar";
 
 function App() {
-  //Display my data pulled from the server (workers.json)
-  const [workers, setWorkers] = useState([]);
+   //Display my data pulled from the server (workers.json)
+   const [workers, setWorkers] = useState([]);
 
-  useEffect(() => {
-    axios.get('http://localhost:3000/workers')
-      .then((response) => {
-        // Handle successful response
-        setWorkers(response.data);
-      })
-      .catch((error) => {
-        // Handle error
-        console.error(error);
-      });
-  }, []);
-
-  
+   useEffect(() => {
+     axios.get('http://localhost:3000/workers')
+       .then((response) => {
+         // Handle successful response
+         setWorkers(response.data);
+       })
+       .catch((error) => {
+         // Handle error
+         console.error(error);
+       });
+   }, []);
 
   return (
-    <>
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-       
-       {/* iNFORMATION INPUT COLLECTION */}
-        <div className='section'>
-            {/* <UserForm/> */}
-            <UserUpdate/>
-        </div>
-        {/* iNFORMATION OUTPUT DISPLAY */}
-        <div className='section'>
-        <h1>Display Worker Info</h1>
-            <UserInfo key={workers.id} workers={workers}/>
-        </div>
-      </header>
+    <div className="mainSection">
+    
+<Router> 
+<>
+  <Navbar/>
+</>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/UserForm" component={UserForm} />
+        <Route path="/UserInfo">
+        <UserInfo key={workers.id} workers={workers}/>
+        </Route>
+
+        <Route path="/UserUpdate" component={UserUpdate} />
+      </Switch>
+    </Router>
+  
     </div>
-    </>
   );
 }
 

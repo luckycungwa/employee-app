@@ -106,8 +106,7 @@ function UserUpdate() {
         </label>
         <br />
         {/* Might wanna change the button label back to add user! */}
-        <button className="cta-btn" type="submit" onClick={handleSubmit}>
-          Update Worker : {userData.id}
+        <button className="cta-btn" type="submit" onClick={handleSubmit}> Update
         </button>
       </form>
     </div>
