@@ -1,44 +1,30 @@
 {
   "workers": [
     {
-      "name": "sluger",
-      "email": "Cungwa@gmil.com",
-      "position": "Manager",
-      "idNum": "222",
-      "cell": "2222",
-      "id": 4
+      "name": "Keely Cool",
+      "email": "mdolbey9@ucoz.ru",
+      "position": "Programmer II",
+      "idNum": "363-80-7837",
+      "cell": "981-149-4642",
+      "id": 89
     },
     {
-      "name": "Unknown",
-      "email": "unkown@gmail.com",
-      "position": "Security",
-      "idNum": "155896",
-      "cell": "0142563",
-      "id": 5
-    },
-    {
-      "name": "",
-      "email": "",
-      "position": "",
+      "name": "lucky winter",
+      "email": "wingter@gma.com",
       "idNum": "",
-      "cell": "",
-      "id": 6
+      "cell": "12458",
+      "position": "Programmer",
+      "avatar": null,
+      "id": 90
     },
     {
-      "name": "Lucky",
-      "email": "Lucky@gmail.com",
-      "position": "Regional Manager",
-      "idNum": "1212",
-      "cell": "0412563",
-      "id": 7
-    },
-    {
-      "name": "Lucky",
-      "email": "Cungwa@gmail.com",
-      "position": "CEO",
-      "idNum": "12548",
-      "cell": "012121",
-      "id": 8
+      "name": "lucky winter",
+      "email": "wingter@gma.com",
+      "idNum": "",
+      "cell": "12458",
+      "position": "Programmer",
+      "avatar": null,
+      "id": 92
     }
   ]
 }

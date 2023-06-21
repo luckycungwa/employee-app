@@ -40,44 +40,42 @@ const UserInfo = () => {
       });
   };
 
-
   return (
     <>
       <div className="user-section">
         {/* CALL THE USERiTEM COMONENT TO ACCESS & MANIPULATE THE DATA */}
         <h1>EMPLOYEES</h1>
-{/* TABLE FOR WORKER INFORMATION DISPLAY */}
-<table class="user-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Cellphone</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-          {/* uSER DATA COMPONENT */}
-          {workers.map((worker) => (
-          <div className="profile">
-          
-            <WorkerItem
-              key={Worker.id}
-              worker={worker}
-              onDelete={handleDeleteWorker}
-            />
-          </div>
-        ))}
-            
-          </tr>
-        </tbody>
-      </table>
-
-
+        {/* TABLE FOR WORKER INFORMATION DISPLAY */}
+        <table class="user-table">
        
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Name</th>
+              <th>Position</th>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Cellphone</th>
+              <th >
+              <div className="searchbar right">
+              <img className="icon" src="./search-icon.png" alt="seacrh"/>
+                <input type="text" className="searchbar" placeholder="Find employee.."/> 
+              
+              </div>
+              
+              </th>
+            </tr>
+          </thead>
+
+          {/* table components for users from the database */}
+          {workers.map((worker) => (
+                          <WorkerItem
+                key={Worker.id}
+                worker={worker}
+                onDelete={handleDeleteWorker}
+              />
+          ))}
+        </table>
       </div>
     </>
   );

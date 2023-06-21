@@ -44,7 +44,6 @@ function App() {
         <Route path="/UserInfo">
         <UserInfo key={workers.id} workers={workers}/>
         </Route>
-
         <Route path="/UserUpdate" component={UserUpdate} />
       </Switch>
     </Router>

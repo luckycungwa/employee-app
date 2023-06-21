@@ -8,9 +8,10 @@ const UserForm = ({ workerId }) => {
   const defaultForm = {
     name: "",
     email: "",
-    position: "",
     idNum: "",
     cell: "",
+    position: "",
+    avatar: null, // Image data will be stored as a base64 string | MIGH ADD  ADEFAULT thumbnail
   };
   const [formData, setFormData] = useState(defaultForm);
 
@@ -18,29 +19,40 @@ const UserForm = ({ workerId }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleImageUpload = (e) => {
+    const userFile = e.target.files[0];
+    //Check if there was a file selected and it is an acceptable format
+    if (userFile) {
+      const reader = new FileReader();
+      // Check what file was slected before we convert it string for Json (base64)
+      reader.onloadend = () => {
+        //set our form data
+        setFormData({ ...formData, avatar: reader.result });
+      };
+
+      reader.readAsDataURL(userFile);
+    };
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Post on my server at specified dir (http://localhost:3000/workers)
     axios
-      .post(`http://localhost:3000/workers`, formData)
+      .post("http://localhost:3000/workers", formData)
       .then((response) => {
-        // Handle successful response
         console.log(response.data);
-        // Reset the form | CURRENTLY NOT WORKING
         setFormData(defaultForm);
       })
       .catch((error) => {
-        // Handle error
         console.error(error);
       });
   };
 
   return (
-    <div className="section">
-     <h1>REGISTER NEW EMPLOYEE</h1>
+    <div className="form-section">
       <div className="form">
-       
-
+        <h1>REGISTER NEW EMPLOYEE</h1>
+        <br />
+        <br />
         <form onSubmit={handleSubmit}>
           <label className="label user-data">
             Name:
@@ -87,8 +99,19 @@ const UserForm = ({ workerId }) => {
               onChange={handleInputChange}
             />
           </label>
+          <label className="user-data">
+            Avatar:
+            <input
+              type="file"
+              name="avatar"
+              accept="image/png, image/jpg, image/jpeg"
+              onChange={handleImageUpload}
+            />
+          </label>
           <br />
-          <button className="cta-btn" type="submit">
+          <br />
+
+          <button className="cta-btn user-data" type="submit">
             Add Worker
           </button>
         </form>
