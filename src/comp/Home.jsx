@@ -4,9 +4,34 @@ function Home() {
  
     return(
 <>
-<div className="App">
+<div className="main-menu">
+<div className="card-item">
+    
+</div>
 
-<h1 className="right">HOME PAGE</h1>
+<div className="card-item">
+    
+</div>
+
+<div className="card-item">
+    
+</div>
+
+<div className="card-item">
+    
+</div>
+
+<div className="card-item">
+    
+</div>
+
+<div className="card-item">
+    
+</div>
+
+
+
+
 </div>
 
 

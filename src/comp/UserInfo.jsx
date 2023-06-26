@@ -43,8 +43,7 @@ const UserInfo = () => {
   return (
     <>
       <div className="user-section">
-        {/* CALL THE USERiTEM COMONENT TO ACCESS & MANIPULATE THE DATA */}
-        <h1>EMPLOYEES</h1>
+        
         {/* TABLE FOR WORKER INFORMATION DISPLAY */}
         <table class="user-table">
        

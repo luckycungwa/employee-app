@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 // for data management with json server
 import axios from "axios";
+// importing my user details component
+import UserInfo from "./UserInfo";
 
 const UserForm = ({ workerId }) => {
   // Iniialise form fields / states
@@ -48,12 +50,16 @@ const UserForm = ({ workerId }) => {
   };
 
   return (
-    <div className="form-section">
-      <div className="form">
-        <h1>REGISTER NEW EMPLOYEE</h1>
-        <br />
-        <br />
-        <form onSubmit={handleSubmit}>
+    <div className="register">
+    <div >
+       <p className="title">Register New Employee</p>
+    <br/>
+    </div>
+   
+    <div className="cover-card">
+    
+      <div className="section">
+        <form className="form" onSubmit={handleSubmit}>
           <label className="label user-data">
             Name:
             <input
@@ -115,6 +121,10 @@ const UserForm = ({ workerId }) => {
             Add Worker
           </button>
         </form>
+        <div className="section cover">
+        <img src="/000.png" alt="thumbnail bg" className="thumbnail"></img>
+      </div>
+      </div>
       </div>
     </div>
   );

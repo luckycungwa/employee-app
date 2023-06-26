@@ -16,39 +16,44 @@ import Home from "./comp/Home";
 import Navbar from "./comp/Navbar";
 
 function App() {
-   //Display my data pulled from the server (workers.json)
-   const [workers, setWorkers] = useState([]);
+  //Display my data pulled from the server (workers.json)
+  const [workers, setWorkers] = useState([]);
 
-   useEffect(() => {
-     axios.get('http://localhost:3000/workers')
-       .then((response) => {
-         // Handle successful response
-         setWorkers(response.data);
-       })
-       .catch((error) => {
-         // Handle error
-         console.error(error);
-       });
-   }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/workers")
+      .then((response) => {
+        // Handle successful response
+        setWorkers(response.data);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error(error);
+      });
+  }, []);
 
   return (
-    <div className="mainSection">
-    
-<Router> 
-<>
-  <Navbar/>
-</>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/UserForm" component={UserForm} />
-        <Route path="/UserInfo">
-        <UserInfo key={workers.id} workers={workers}/>
-        </Route>
-        <Route path="/UserUpdate" component={UserUpdate} />
-      </Switch>
+    <Router>
+      {/* Layout styles for thw main document body */}
+      <section class="layout">
+        {/* Menu section for the Routing links */}
+        <div class="sidebar">
+          <Navbar />
+        </div>
+
+        {/* My body/ main content section */}
+        <div class="body">
+          <Switch>
+            <Route exact path="/Home" component={Home} />
+            <Route path="/UserForm" component={UserForm} />
+            <Route path="/UserInfo">
+              <UserInfo key={workers.id} workers={workers} />
+            </Route>
+            <Route path="/UserUpdate" component={UserUpdate} />
+          </Switch>
+        </div>
+      </section>
     </Router>
-  
-    </div>
   );
 }
 

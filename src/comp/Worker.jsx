@@ -25,7 +25,7 @@ const WorkerItem = ({ worker, onDelete }) => {
           <tr >
           {/* User avata */}
           {/* <td className="user-img"></td> */}
-          <td><img id="avatar" alt="avatar" src={worker.avatar}/> </td>
+          <td  className="avatar-thumbnail"><img className="avatar" id="avatar" alt="avatar" src={worker.avatar}/> </td>
           {/* <td><img src="./logo192.png"/> </td> */}
             <td>{worker.name}</td>
             <td>{worker.position}</td>
