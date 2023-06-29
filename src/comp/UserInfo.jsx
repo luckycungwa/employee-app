@@ -40,6 +40,7 @@ const UserInfo = () => {
       });
   };
 
+
   return (
     <>
       <div className="user-section">
@@ -58,7 +59,7 @@ const UserInfo = () => {
               <th >
               <div className="searchbar right">
               <img className="icon" src="./search-icon.png" alt="seacrh"/>
-                <input type="text" className="searchbar" placeholder="Find employee.."/> 
+                <input type="text" className="searchbar" placeholder="Find employee.." /> 
               
               </div>
               

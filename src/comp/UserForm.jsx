@@ -16,11 +16,11 @@ const UserForm = ({ workerId }) => {
     avatar: null, // Image data will be stored as a base64 string | MIGH ADD  ADEFAULT thumbnail
   };
   const [formData, setFormData] = useState(defaultForm);
-
+// track user input
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+// image upload manager
   const handleImageUpload = (e) => {
     const userFile = e.target.files[0];
     //Check if there was a file selected and it is an acceptable format
@@ -35,9 +35,18 @@ const UserForm = ({ workerId }) => {
       reader.readAsDataURL(userFile);
     };
   };
+// check if the form fields are filled otherwise alert user to fill in info
+  const checkFormFill = () => {
+    if (!formData) {
+      alert("Please Fill in the form!");       // Alert the user if they did not filll in the task
+      return;
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Prevent null submission
+    checkFormFill();
     axios
       .post("http://localhost:3000/workers", formData)
       .then((response) => {
@@ -67,6 +76,7 @@ const UserForm = ({ workerId }) => {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
+              required
             />
           </label>
           <label className="label user-data">
@@ -76,6 +86,7 @@ const UserForm = ({ workerId }) => {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
+              required
             />
           </label>
           <label className="label user-data">
@@ -85,6 +96,8 @@ const UserForm = ({ workerId }) => {
               name="cell"
               value={formData.cell}
               onChange={handleInputChange}
+              required
+              maxLength={12}
             />
           </label>
           <label className="label user-data">
@@ -94,6 +107,8 @@ const UserForm = ({ workerId }) => {
               name="idNum"
               value={formData.idNum}
               onChange={handleInputChange}
+              required
+              maxLength={10}
             />
           </label>
           <label className="label user-data">
@@ -103,6 +118,8 @@ const UserForm = ({ workerId }) => {
               name="position"
               value={formData.position}
               onChange={handleInputChange}
+              required
+              maxLength={28}
             />
           </label>
           <label className="user-data">

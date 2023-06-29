@@ -188,7 +188,7 @@ select:focus {
   position: relative;
   box-shadow: 0 1px 15px #00000033;
   margin: 8px 0 0 0;
-  padding: 12px;
+  padding: 4px;
   border-radius: 4px;
   flex-wrap: wrap;
   transition: all 0.4s;
@@ -212,11 +212,12 @@ select:focus {
 }
 
 .avatar-thumbnail {
-  max-width: 12px;
-  max-height: px;
-  border-radius: 50px;
-  background-color: #3053ff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #363636;
   position: relative;
+  margin: 0;
 }
 
 .user-name {
@@ -255,7 +256,9 @@ select:focus {
 /* Table design info */
 table {
   border-collapse: collapse;
-  width: 90%;
+  width: auto;
+  flex-direction: row;
+  
 }
 
 th {
